@@ -1,4 +1,5 @@
 import 'package:facebook_messenger_clone/models/chat_model.dart';
+import 'package:facebook_messenger_clone/screens/camera_page.dart';
 import 'package:facebook_messenger_clone/screens/chats_page.dart';
 import 'package:facebook_messenger_clone/screens/new_message.dart';
 import 'package:facebook_messenger_clone/screens/people_page.dart';
@@ -43,18 +44,31 @@ class _MessengerHomeState extends State<MessengerHome> {
         ),
         elevation: 0.5,
         actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Container(
-              height: 35.0,
-              width: 35.0,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white24,
-              ),
-              child: Icon(
-                _currentIndex == 0 ? Icons.camera_alt : Icons.contacts,
-                size: 20.0,
+          GestureDetector(
+            onTap: () {
+              if (_currentIndex == 0) {
+                return Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => CameraPage(),
+                  ),
+                );
+              }
+              return null;
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                height: 35.0,
+                width: 35.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white24,
+                ),
+                child: Icon(
+                  _currentIndex == 0 ? Icons.camera_alt : Icons.contacts,
+                  size: 20.0,
+                ),
               ),
             ),
           ),

@@ -3,6 +3,7 @@ class ChatModel {
   final String message;
   final String time;
   final String avatarUrl;
+  bool isSelected = false;
 
   ChatModel({this.name, this.message, this.avatarUrl, this.time});
 }
